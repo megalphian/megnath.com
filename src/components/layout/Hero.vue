@@ -8,24 +8,41 @@
         <p class="hero_text--tag">Tech Champion</p>
         <p class="hero_text--tag">X-Factor</p>
         <p class="hero_text--intro">I love making innovative teams acheive their full potential with the relentless drive and enthusiasm I bring, along with a wide array of skills in robotics, AR/VR and IoT</p>
+        <MiniButtonList class="contact_list" v-bind:list='list' />
+        <Button class="contact_button" :link="blog.link" :text="blog.title" :colour="blog.colour" />
       </div>
     </section>
-    <div class="scroll">
-      <img class="scroll_icon" src="../../assets/elements/arrow_down.png"/>
-    </div>
   </div>
 
 </template>
 
 <script lang="js">
-
+  import MiniButtonList from './../system/MiniButtonList.vue'
+  import Button from './../system/Button.vue'
 
   export default  {
     name: 'hero',
-    components: { },
+    components: {
+      MiniButtonList,
+      Button
+     },
     props: [],
     mounted () { },
-    data () { return { } },
+    data () { 
+      return {
+        list: [
+          {link: "https://github.com/megalphian",           icon: "github"},
+          {link: "https://twitter.com/MegnathR",            icon: "twitter"},
+          {link: "https://linkedin.com/in/megnath-ramesh",  icon: "linkedin"},
+          {link: "mailto:megnath@hey.com",           icon: "envelope"},
+        ],
+        blog: {
+          title: "Blog",
+          link: "http://blog.megnath.com",
+          colour: "#2c3e50"
+        }
+      } 
+     },
     methods: { },
     computed: { }
 }
@@ -57,13 +74,13 @@
 
   .hero {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 540px));
-    grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
     margin-top: 20vh;
-    margin-bottom: 2vh;
+    padding-bottom: 40px;
+    grid-template-columns: minmax(240px, 540px);
+    grid-template-rows: minmax(min-content, max-content);
 
     // Mobile layout
-    @media screen and (max-width: 600px)  {
+    @media screen and (max-width: 950px) {
       grid-template-columns: 100%;
     }
 
@@ -78,11 +95,15 @@
       &--tag {
         margin: 7px 0;
         font-size: smaller;
-        color: #FFF;
+        color: var(--brand-colour);
+        font: var(--subtitle-text);
+        padding-bottom: 8px;
       }
       &--intro { 
         margin: 30px 0;
+        margin-bottom: 0;
         color: #FFF;
+        padding-bottom: 8px;
        }
       &--title { 
         margin: 30px 0;
@@ -101,20 +122,17 @@
     }
   }
 
-  .scroll {
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
-    align-items: center;
-
-    &_icon {
-      max-width:150px;
-      max-height:150px;
-      width: auto;
-      height: auto;
-      filter: contrast(15%);
-      opacity: 0.65;
+  .contact {
+    &_list {
+      grid-row: 2;
+      position: relative;
+      margin: 20px 0;
+      min-height: 50px;
     }
+
+    &_button {
+        display: inline-block;
+        margin-top: 10px;
+      }
   }
 </style>
