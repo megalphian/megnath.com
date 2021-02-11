@@ -4,10 +4,11 @@
     <section class="hero section">
       <div class="hero_content">
         <h1 class="app_text--title hero_text--title"> Megnath Ramesh</h1>
-        <p class="hero_text--tag">Roboticist</p>
-        <p class="hero_text--tag">Tech Champion</p>
-        <p class="hero_text--tag">X-Factor</p>
-        <p class="hero_text--intro">I love making innovative teams acheive their full potential with the relentless drive and enthusiasm I bring, along with a wide array of skills in robotics, AR/VR and IoT</p>
+        <p class="hero_text--tag">Robotics Researcher</p>
+        <p class="hero_text--tag">Software Developer</p>
+        <p class="hero_text--tag">Aspiring Scientist</p>
+        <p class="hero_text--intro">I am a graduate student who builds software systems for complex robotics. I am passionate about AI in robotics and control systems.</p>
+        <!-- <p class="hero_text--intro">I love making innovative teams acheive their full potential with the relentless drive and enthusiasm I bring, along with a wide array of skills in robotics, AR/VR and IoT</p> -->
         <MiniButtonList class="contact_list" v-bind:list='list' />
         <Button class="contact_button" :link="blog.link" :text="blog.title" :colour="blog.colour" />
       </div>

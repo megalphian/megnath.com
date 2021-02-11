@@ -1,8 +1,16 @@
 <template lang="html">
 
   <section class="intro section" id="intro">
-		<h1 class="app_text--title intro_text--title intro_item title">My Work</h1>
+		<h1 class="app_text--title intro_text--title intro_item title">What I've Done</h1>
     <div class="intro_proj">
+      <FloatingImage :image="uwaterloo.image" :colour="uwaterloo.colour" class="intro_item intro_item--right uwaterloo img" />
+      <div class="intro_item intro_item--left text">
+        <h1 class="intro_subtitle">{{uwaterloo.title}}</h1>
+        <p class="intro_description">{{uwaterloo.description}}</p>
+        <Button class="intro_button intro_button--uwaterloo" :new-tab="true" :link="uwaterloo.githubbuttonlink" :text="uwaterloo.githubbuttontext" :colour="uwaterloo.colour" />
+      </div>
+    </div>
+    <div class="intro_proj intro_proj--inverse">
       <FloatingImage :image="scopear.image" :colour="scopear.colour" class="intro_item intro_item--right scopear img" />
       <div class="intro_item intro_item--left text">
         <h1 class="intro_subtitle">{{scopear.title}}</h1>
@@ -10,7 +18,7 @@
         <Button class="intro_button intro_button--scopear" :new-tab="true" :link="scopear.resumebuttonlink" :text="scopear.resumebuttontext" :colour="scopear.colour" />
       </div>
     </div>
-    <div class="intro_proj intro_proj--inverse">
+    <div class="intro_proj">
       <FloatingImage :image="rovr_the_explorer.image" :colour="rovr_the_explorer.colour" class="intro_item intro_item--right rovr_the_explorer img" />
       <div class="intro_item intro_item--left text">
         <h1 class="intro_subtitle">{{rovr_the_explorer.title}}</h1>
@@ -19,13 +27,21 @@
         <Button class="intro_button intro_button--rovr_the_explorer" :new-tab="true" :link="rovr_the_explorer.resumebuttonlink" :text="rovr_the_explorer.resumebuttontext" :colour="rovr_the_explorer.colour" />
       </div>
     </div>
-    <div class="intro_proj">
+    <div class="intro_proj intro_proj--inverse">
       <FloatingImage :image="paulie_blart.image" :colour="paulie_blart.colour" class="intro_item intro_item--right paulie_blart img" />
       <div class="intro_item intro_item--left text">
         <h1 class="intro_subtitle">{{paulie_blart.title}}</h1>
         <p class="intro_description">{{paulie_blart.description}}</p>
         <Button class="intro_button intro_button--paulie_blart" :new-tab="true" :link="paulie_blart.githubbuttonlink" :text="paulie_blart.githubbuttontext" :colour="paulie_blart.colour" />
         <Button class="intro_button intro_button--paulie_blart" :new-tab="true" :link="paulie_blart.resumebuttonlink" :text="paulie_blart.resumebuttontext" :colour="paulie_blart.colour" />
+      </div>
+    </div>
+    <div class="intro_proj">
+      <FloatingImage :image="veerum.image" :colour="veerum.colour" class="intro_item intro_item--right veerum img" />
+      <div class="intro_item intro_item--left text">
+        <h1 class="intro_subtitle">{{veerum.title}}</h1>
+        <p class="intro_description">{{veerum.description}}</p>
+        <Button class="intro_button intro_button--veerum" :new-tab="true" :link="veerum.resumebuttonlink" :text="veerum.resumebuttontext" :colour="veerum.colour" />
       </div>
     </div>
   </section>
@@ -49,9 +65,17 @@
     },
     data () {
       return {
+        uwaterloo: {
+          title: "Graduate Research Student at UWaterloo*",
+          description: "(*This is what I currently do!) I study and research motion planning algorithms for autonomous robots. My focus is programming a ground robot to cover large arbitrary and uncertain environments.",
+          githubbuttonlink: "https://github.com/megalphian/vrn-cntrd-simulator",
+          githubbuttontext: "Coding Sample",
+          image: require("../../assets/pics/waterloo-sign.jpg"),
+          colour: "#F6CD59"
+        },
         scopear: {
           title: "Software Developer at ScopeAR",
-          description: "This is what I currently do! I work with an awesome team of developers where we build an AR enabled work assistance application. We help rocket engineers train faster and get remote help at their fingertips",
+          description: "I worked with an awesome team of developers where we built an AR enabled work assistance application. The app helps rocket engineers train faster and get remote help at their fingertips",
           resumebuttonlink: "https://drive.google.com/file/d/1Xui-6thG-UhKMMHeErZQCkJtZO2SZ4cG/view",
           resumebuttontext: "More on Resume",
           image: require("../../assets/pics/scope_gang.jpg"),
@@ -76,6 +100,14 @@
           resumebuttontext: "More on Resume",
           image: require("../../assets/pics/paulie_blart.jpg"),
           colour: "#0EBFE9"
+        },
+        veerum: {
+          title: "Junior Robotics Developer at VEERUM",
+          description: "This was where I got a taste for how robots can be used in a real-world application. I worked on a pilot project to regularly schedule 3D scans of an industrial modyard using robots. I built the waypoint navigation and obstacle avoidance software for 2 ground robot platforms.",
+          resumebuttonlink: "https://drive.google.com/file/d/1Xui-6thG-UhKMMHeErZQCkJtZO2SZ4cG/view",
+          resumebuttontext: "More on Resume",
+          image: require("../../assets/pics/veerum_poster.jpg"),
+          colour: "#254966"
         },
       }
     },
